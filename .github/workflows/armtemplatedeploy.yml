@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+# This is a basic workflow to help you get started with Actions.
 name: armTemplateDeployment
 
 on:
@@ -10,4 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_SANDBOX_SECRET }}
 
