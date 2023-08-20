@@ -31,6 +31,4 @@ jobs:
             ./arm-templates/storageaccount.parameters.json
             storageAccountName=slartinetstg002
           deploymentMode: Incremental
-
-      - run: echo "The storage account blob endpoint was ${{ steps.storageAccountDeployment.outputs.primaryBlobEndpoint }}"
       
