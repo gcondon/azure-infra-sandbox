@@ -2,6 +2,9 @@
 name: armTemplateDeployment
 
 on:
+  push:
+    branches: [ main ]
+    
   workflow_dispatch:
 
 jobs:
@@ -16,3 +19,12 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_SANDBOX_SECRET }}
 
+      - name: Deploy Storage Account
+        uses: azure/arm-deploy@v1
+        with:
+          scope: resourcegroup
+          resource-group: slartinetgithubtest
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION }}
+          template: ./arm-templates/storageaccount.json
+          parameters: ./arm-templates/storageaccount.parameters.json
+          deployment-mode: incremental
