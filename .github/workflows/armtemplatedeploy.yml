@@ -26,5 +26,7 @@ jobs:
           resourceGroupName: slartinetgithubtest
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           template: ./arm-templates/storageaccount.json
-          parameters: ./arm-templates/storageaccount.parameters.json
+          parameters:
+            ./arm-templates/storageaccount.parameters.json
+            storageAccountName: slartinetstg002
           deploymentMode: Incremental
