@@ -21,6 +21,7 @@ jobs:
 
       - name: Deploy Storage Account
         uses: azure/arm-deploy@v1
+        id: storageAccountDeployment
         with:
           scope: resourcegroup
           resourceGroupName: slartinetgithubtest
@@ -30,3 +31,6 @@ jobs:
             ./arm-templates/storageaccount.parameters.json
             storageAccountName=slartinetstg002
           deploymentMode: Incremental
+
+      - run: echo "The storage account blob endpoint was ${{ steps.storageAccountDeployment.outputs.primaryBlobEndpoint }}"
+      
