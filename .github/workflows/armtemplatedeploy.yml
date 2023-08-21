@@ -24,7 +24,7 @@ jobs:
         id: storageAccountDeployment
         with:
           scope: resourcegroup
-          resourceGroupName: slartinetgithubtest
+          resourceGroupName: slartinetgithubtestrg
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           template: ./arm-templates/storageaccount.json
           parameters:
@@ -37,7 +37,7 @@ jobs:
         id: vmDeployment
         with:
           scope: resourcegroup
-          resourceGroupName: slartinetgithubtest
+          resourceGroupName: slartinetgithubtestrg
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           template: ./arm-templates/virtualmachine.json
           parameters:
