@@ -13,6 +13,12 @@
             "metadata": {
                 "description": "adminUsername"
             }
+        },
+        "vmName": {
+            "type": "string",
+            "metadata": {
+                "description": "vmName"
+            }
         }
     },
     "functions": [],
@@ -98,7 +104,7 @@
             }
         },
         {
-            "name": "slartinetUbuntu001",
+            "name": "[parameters('vmName')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2021-03-01",
             "location": "[resourceGroup().location]",
@@ -106,14 +112,14 @@
                 "[resourceId('Microsoft.Network/networkInterfaces', 'slartinetUbuntu001-NetworkInterface')]"
             ],
             "tags": {
-                "displayName": "slartinetUbuntu001"
+                "displayName": "[parameters('vmName')]"
             },
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "Standard_A2_v2"
                 },
                 "osProfile": {
-                    "computerName": "slartinetUbuntu001",
+                    "computerName": "[parameters('vmName')]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
@@ -121,7 +127,7 @@
                     "imageReference": {
                         "publisher": "Canonical",
                         "offer": "UbuntuServer",
-                        "sku": "16.04-LTS",
+                        "sku": "20.04-LTS",
                         "version": "latest"
                     },
                     "osDisk": {

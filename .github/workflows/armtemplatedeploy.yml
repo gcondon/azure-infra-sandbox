@@ -39,9 +39,8 @@ jobs:
           scope: resourcegroup
           resourceGroupName: slartinetgithubtest
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          template: ./arm-templates/vm.json
+          template: ./arm-templates/virtualmachine.json
           parameters:
-            ./arm-templates/virtualmachine.parameters.json
             vmName=slartinetvm001
             adminUsername=gavin
             adminPassword=${{ secrets.AZURE_VM_PASSWORD }}
