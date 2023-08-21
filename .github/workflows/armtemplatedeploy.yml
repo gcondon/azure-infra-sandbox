@@ -29,7 +29,7 @@ jobs:
           template: ./arm-templates/storageaccount.json
           parameters:
             ./arm-templates/storageaccount.parameters.json
-            storageAccountName=slartinetstg002
+            storageAccountName=slartinetstg003
           deploymentMode: Incremental
 
       - name: Deploy VM
