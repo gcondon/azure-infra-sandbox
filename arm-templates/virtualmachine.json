@@ -8,7 +8,7 @@
                 "description": "adminPassword"
             }
         },
-        "adminUserName": {
+        "adminUsername": {
             "type": "string",
             "metadata": {
                 "description": "adminUsername"
