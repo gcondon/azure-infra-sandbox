@@ -31,4 +31,18 @@ jobs:
             ./arm-templates/storageaccount.parameters.json
             storageAccountName=slartinetstg002
           deploymentMode: Incremental
-      
+
+      - name: Deploy VM
+        uses: azure/arm-deploy@v1
+        id: vmDeployment
+        with:
+          scope: resourcegroup
+          resourceGroupName: slartinetgithubtest
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          template: ./arm-templates/vm.json
+          parameters:
+            ./arm-templates/virtualmachine.parameters.json
+            vmName=slartinetvm001
+            adminUsername=gavin
+            adminPassword=${{ secrets.AZURE_VM_PASSWORD }}
+          deploymentMode: Incremental
